@@ -1,0 +1,70 @@
+length of permutation: 1
+average runtime of recursive: 2.00 ms
+average runtime of directionary: 2.00 ms
+average runtime of sjt: 2.00 ms
+average runtime of increase_base: 2.00 ms
+average runtime of decreate_base: 2.00 ms
+average runtime of neighbour_exchange: 2.00 ms
+length of permutation: 2
+average runtime of recursive: 1.00 ms
+average runtime of directionary: 1.00 ms
+average runtime of sjt: 1.00 ms
+average runtime of increase_base: 2.00 ms
+average runtime of decreate_base: 2.00 ms
+average runtime of neighbour_exchange: 3.00 ms
+length of permutation: 3
+average runtime of recursive: 4.00 ms
+average runtime of directionary: 1.00 ms
+average runtime of sjt: 2.00 ms
+average runtime of increase_base: 1.00 ms
+average runtime of decreate_base: 2.00 ms
+average runtime of neighbour_exchange: 3.00 ms
+length of permutation: 4
+average runtime of recursive: 7.00 ms
+average runtime of directionary: 3.00 ms
+average runtime of sjt: 7.00 ms
+average runtime of increase_base: 2.00 ms
+average runtime of decreate_base: 4.00 ms
+average runtime of neighbour_exchange: 7.00 ms
+length of permutation: 5
+average runtime of recursive: 24.00 ms
+average runtime of directionary: 5.00 ms
+average runtime of sjt: 40.00 ms
+average runtime of increase_base: 5.00 ms
+average runtime of decreate_base: 23.00 ms
+average runtime of neighbour_exchange: 38.00 ms
+length of permutation: 6
+average runtime of recursive: 132.00 ms
+average runtime of directionary: 22.00 ms
+average runtime of sjt: 278.00 ms
+average runtime of increase_base: 27.00 ms
+average runtime of decreate_base: 193.00 ms
+average runtime of neighbour_exchange: 260.00 ms
+length of permutation: 7
+average runtime of recursive: 746.00 ms
+average runtime of directionary: 120.00 ms
+average runtime of sjt: 1843.00 ms
+average runtime of increase_base: 148.00 ms
+average runtime of decreate_base: 1182.00 ms
+average runtime of neighbour_exchange: 1408.00 ms
+length of permutation: 8
+average runtime of recursive: 4564.00 ms
+average runtime of directionary: 669.00 ms
+average runtime of sjt: 11838.00 ms
+average runtime of increase_base: 883.00 ms
+average runtime of decreate_base: 8598.00 ms
+average runtime of neighbour_exchange: 11007.00 ms
+length of permutation: 9
+average runtime of recursive: 34485.00 ms
+average runtime of directionary: 5256.00 ms
+average runtime of sjt: 129127.00 ms
+average runtime of increase_base: 7727.00 ms
+average runtime of decreate_base: 85202.00 ms
+average runtime of neighbour_exchange: 116482.00 ms
+length of permutation: 10
+average runtime of recursive: 351554.00 ms
+average runtime of directionary: 55424.00 ms
+average runtime of sjt: 1271850.00 ms
+average runtime of increase_base: 76088.00 ms
+average runtime of decreate_base: 965807.00 ms
+average runtime of neighbour_exchange: 1232616.00 ms

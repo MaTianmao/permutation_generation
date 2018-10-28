@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <cmath>
+#include <cstring>
 #include <ctime>
 using namespace std;
 
@@ -11,14 +12,30 @@ int method;
 int num;
 int a[15];
 
+double wall_time()
+{
+#ifdef GETTIMEOFDAY
+    struct timeval t;
+    gettimeofday(&t, NULL);
+    return 1. * t.tv_sec + 1.e-6 * t.tv_usec;
+#else
+    struct timespec t;
+    clock_gettime(CLOCK_MONOTONIC, &t);
+    return 1. * t.tv_sec + 1.e-9 * t.tv_nsec;
+#endif
+}
+
 void usage1(){
     printf("please input a number (1-6):\n"
             "(1)Recursive\n"
-            "(2)Directionary\n"
+            "(2)Lexicographical\n"
             "(3)SJT\n"
             "(4)Incremental\n"
             "(5)Decremental\n"
-            "(6)Adjacent\n");
+            "(6)Adjacent\n"
+            "(7)Lexicographical_with_intermediate_number\n"
+            "(8)Recursive_with_stack\n"
+            "(9)a_new_algorithm_with_heap\n");
 }
 
 void usage2(){
@@ -29,8 +46,8 @@ void input(){
     while(1){
         usage1();
         scanf("%d", &method);
-        if(method >= 1 && method <= 6) break;
-        printf("%d is out of range of (1-6), please input again!\n", method);
+        if(method >= 1 && method <= 9) break;
+        printf("%d is out of range of (1-9), please input again!\n", method);
     }
     while(1){
         usage2();
@@ -43,7 +60,7 @@ void input(){
 //recursive algorithm, the complexity is O(n!)
 void do_recursive(string s, int output){
     if(s.size() == num){
-        if(output) cout<<s<<endl;
+        if(output) printf("%s\n", s.c_str());
         return;
     }
     int n = s.size() + 1;
@@ -58,8 +75,8 @@ void do_recursive(string s, int output){
     do_recursive(ss, output);
 }
 
-//directionary algorithm
-void do_directionary(int output){
+//lexicographical algorithm
+void do_lexicographical(int output){
     char s[15];
     int i, j;
     //initialize
@@ -86,14 +103,15 @@ void do_directionary(int output){
 
 void do_sjt(int output){
     // initialize the first permutation and direction 
-    string s = "";
+    char s[15];
     int dir[15];
     for(int i = 1; i <= num; i++){
-        s += (char)(i + '0');
+        s[i - 1] = (char)(i + '0');
         dir[i - 1] = -1;
     }
+    s[num] = 0;
     while(1){
-        if(output) cout<<s<<endl;
+        if(output) printf("%s\n", s);
         //max number can move
         int i, j, maxn = -1, maxnitem = 0;
         for(i = 0; i < num; i++){
@@ -142,14 +160,15 @@ bool incre_add(){
 }
 void do_increase_base(int output){
     // initialize the first permutation and intermediate number
-    string s = "";
+    char s[15];
     for(int i = 1; i <= num; i++){
-        s += (char)(i + '0');
+        s[i - 1] = (char)(i + '0');
         a[i] = 0;
     }
+    s[num] = 0;
     // loop to calculate permutation
     while(1){
-        if(output) cout<<s<<endl;
+        if(output) printf("%s\n", s);
         //increase base counting method
         if(!incre_add()) break;
         int vis[15] = {0};
@@ -198,14 +217,15 @@ bool decre_add(){
 
 void do_decrease_base(int output){
     // initialize the first permutation and intermediate number
-    string s = "";
+    char s[15];
     for(int i = 1; i <= num; i++){
-        s += (char)(i + '0');
+        s[i - 1] = (char)(i + '0');
         a[i] = 0;
     }
+    s[num] = 0;
     // loop to calculate permutation
     while(1){
-        if(output) cout<<s<<endl;
+        if(output) printf("%s\n", s);
         //decrease base counting method
         if(!decre_add()) break;
         int vis[15] = {0};
@@ -230,14 +250,15 @@ void do_decrease_base(int output){
 
 void do_neighbour_exchange(int output){
     // initialize the first permutation and intermediate number
-    string s = "";
+    char s[15];
     for(int i = 1; i <= num; i++){
-        s += (char)(i + '0');
+        s[i - 1] = (char)(i + '0');
         a[i] = 0;
     }
+    s[num] = 0;
     // loop to calculate permutation
     while(1){
-        if(output) cout<<s<<endl;
+        if(output) printf("%s\n", s);
         //decrease base counting method
         if(!decre_add()) break;
         int dir[15];
@@ -285,6 +306,81 @@ void do_neighbour_exchange(int output){
     }
 }
 
+// do lexicographical algorithm with intermediate number
+void do_lexicographical_intermediate(int output){
+    // initialize the first permutation and intermediate number
+    char s[15];
+    for(int i = 1; i <= num; i++){
+        s[i - 1] = (char)(i + '0');
+        a[i] = 0;
+    }
+    s[num] = 0;
+    // loop to calculate permutation
+    while(1){
+        if(output) printf("%s\n", s);
+        //increase base counting method
+        if(!incre_add()) break;
+        int vis[15] = {0};
+        // generate permutation
+        for(int i = 0; i < num; i++){
+            int emptynum = 0;
+            for(int j = 1; j <= num; j++){
+                if(vis[j] == 0){
+                    if(emptynum == a[num - i]){
+                        vis[j] = 1;
+                        s[i] = (char)(j + '0');
+                        break;
+                    }
+                    else{
+                        emptynum++;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//do recursive with stack implemented by ourself
+void do_recursive_with_stack(int output){
+    string st[15];
+    int pos_st[15];
+    //st records string, and pos_st record the position
+    st[0] = "1";
+    memset(pos_st, -1, sizeof(pos_st));
+    pos_st[0] = 0;
+    int top = 1;
+    while(top != 0){
+        if(st[top - 1].size() == num){ //output
+            if(output) printf("%s\n", st[top - 1].c_str());
+            top--;
+            continue;
+        }
+        if(pos_st[top] == st[top - 1].size()){ //insert the end of permutation
+            pos_st[top] = -1;
+            top--;
+            continue;
+        }
+        pos_st[top]++;
+        string ss = st[top - 1].substr(0, pos_st[top]);
+        ss += (char)(top + 1 + '0');
+        ss += st[top - 1].substr(pos_st[top], st[top - 1].size() - pos_st[top]);
+        st[top] = ss;
+        top++;
+    }
+}
+
+void do_heap(char *s, int len, int output){
+    if(len == 1){
+        if(output) printf("%s\n", s);
+        return;
+    }
+    for(int i = 0; i < len; i++){
+        do_heap(s, len - 1, output);
+        //exchange two elements
+        if(len & 1) swap(s[0], s[len - 1]);
+        else swap(s[i], s[len - 1]);
+    }
+}
 
 void do_permutation(){
     // choose corresponding method
@@ -297,9 +393,9 @@ void do_permutation(){
             fclose(stdout);
             break;
         case 2:
-            snprintf(name, 30, "directionary_%d", num);
+            snprintf(name, 30, "lexicographical_%d", num);
             freopen(name, "w", stdout);
-            do_directionary(1);
+            do_lexicographical(1);
             fclose(stdout);
             break;
         case 3:
@@ -326,75 +422,133 @@ void do_permutation(){
             do_neighbour_exchange(1);
             fclose(stdout);
             break;
+        case 7:
+            snprintf(name, 30, "lexicographical_intermediate_%d", num);
+            freopen(name, "w", stdout);
+            do_lexicographical_intermediate(1);
+            fclose(stdout);
+            break;
+        case 8:
+            snprintf(name, 30, "recursive_with_stack_%d", num);
+            freopen(name, "w", stdout);
+            do_recursive_with_stack(1);
+            fclose(stdout);
+            break;
+        case 9:
+            snprintf(name, 30, "heap_%d", num);
+            freopen(name, "w", stdout);
+            char s[15];
+            for(int i = 1; i <= num; i++) s[i - 1] = (char)(i + '0');
+            s[num] = 0;
+            do_heap(s, num, 1);
+            fclose(stdout);
+            break;
     }
 }
 
-//test average time of 1-6 algorithm 
+//test average time of algorithms above 
 void test_time(){
-    freopen("evaluation___2", "w", stdout);
+    freopen("evaluation", "w", stdout);
     for(int j = 1; j <= 10; j++){
-        clock_t start, end;
+        double start, end;
         num = j;
         printf("length of permutation: %d\n", num);
         //do recursive
         //warm up
         do_recursive("1", 0);
-        start = clock();
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
             do_recursive("1", 0);
         }
-        end = clock();
-        printf("average runtime of recursive: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of recursive: %.2f ms\n", (end - start) * 1000);
         
-        //do_directionary
+        //do_lexicographical
         //warm_up
-        do_directionary(0);
-        start = clock();
+        do_lexicographical(0);
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
-            do_directionary(0);
+            do_lexicographical(0);
         }
-        end = clock();
-        printf("average runtime of directionary: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of lexicographical: %.2f ms\n", (end - start) * 1000);
 
         //do_sjt
         //warm up
         do_sjt(0);
-        start = clock();
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
             do_sjt(0);
         }
-        end = clock();
-        printf("average runtime of sjt: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of sjt: %.2f ms\n", (end - start) * 1000);
         
         //do_increase_base
         //warm up
         do_increase_base(0);
-        start = clock();
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
             do_increase_base(0);
         }
-        end = clock();
-        printf("average runtime of increase_base: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of increase_base: %.2f ms\n", (end - start) * 1000);
 
         //do_decrease_base
         //warm up
         do_decrease_base(0);
-        start = clock();
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
             do_decrease_base(0);
         }
-        end = clock();
-        printf("average runtime of decreate_base: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of decrease_base: %.2f ms\n", (end - start) * 1000);
 
         //do_neighbour_exchange
         //warm up 
         do_neighbour_exchange(0);
-        start = clock();
+        start = wall_time();
         for(int i = 0; i < n_iterator; i++){
             do_neighbour_exchange(0);
         }
-        end = clock();
-        printf("average runtime of neighbour_exchange: %.2f ms\n", (double)(end - start) / CLOCKS_PER_SEC * 1000);
+        end = wall_time();
+        printf("average runtime of neighbour_exchange: %.2f ms\n", (end - start) * 1000);
+
+        //do lexicographical with intermediate number
+        //warm up
+        do_lexicographical_intermediate(0);
+        start = wall_time();
+        for(int i = 0; i < n_iterator; i++){
+            do_lexicographical_intermediate(0);
+        }
+        end = wall_time();
+        printf("average runtime of lexicographical with intermediate number: %.2f ms\n", (end - start) * 1000);
+
+        //do recursive with stack
+        //warm up
+        do_recursive_with_stack(0);
+        start = wall_time();
+        for(int i = 0; i < n_iterator; i++){
+            do_recursive_with_stack(0);
+        }
+        end = wall_time();
+        printf("average runtime of recursive with stack: %.2f ms\n", (end - start) * 1000);
+
+
+        //do heap
+        //warm up
+        char s[15];
+        for(int i = 1; i <= num; i++) s[i - 1] = (char)(i + '0');
+        s[num] = 0;
+        do_heap(s, num, 0);
+        start = wall_time();
+        for(int i = 0; i < n_iterator; i++){
+            for(int j = 1; j <= num; j++) s[j - 1] = (char)(j + '0');
+            s[num] = 0;
+            do_heap(s, num, 0);
+        }
+        end = wall_time();
+        printf("average runtime of heap algorithm: %.2f ms\n", (end - start) * 1000);
+
     }
 
     fclose(stdout);

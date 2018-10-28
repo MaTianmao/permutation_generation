@@ -1,70 +1,100 @@
 length of permutation: 1
-average runtime of recursive: 2.00 ms
-average runtime of directionary: 2.00 ms
-average runtime of sjt: 2.00 ms
-average runtime of increase_base: 2.00 ms
-average runtime of decreate_base: 2.00 ms
-average runtime of neighbour_exchange: 2.00 ms
+average runtime of recursive: 0.00 ms
+average runtime of lexicographical: 0.00 ms
+average runtime of sjt: 0.00 ms
+average runtime of increase_base: 0.00 ms
+average runtime of decreate_base: 0.00 ms
+average runtime of neighbour_exchange: 0.00 ms
+average runtime of lexicographical with intermediate number: 0.00 ms
+average runtime of recursive with stack: 0.00 ms
+average runtime of heap algorithm: 0.00 ms
 length of permutation: 2
-average runtime of recursive: 1.00 ms
-average runtime of directionary: 1.00 ms
-average runtime of sjt: 1.00 ms
-average runtime of increase_base: 2.00 ms
-average runtime of decreate_base: 2.00 ms
-average runtime of neighbour_exchange: 3.00 ms
+average runtime of recursive: 0.00 ms
+average runtime of lexicographical: 0.00 ms
+average runtime of sjt: 0.00 ms
+average runtime of increase_base: 0.00 ms
+average runtime of decreate_base: 0.00 ms
+average runtime of neighbour_exchange: 0.00 ms
+average runtime of lexicographical with intermediate number: 0.00 ms
+average runtime of recursive with stack: 0.00 ms
+average runtime of heap algorithm: 0.00 ms
 length of permutation: 3
-average runtime of recursive: 4.00 ms
-average runtime of directionary: 1.00 ms
-average runtime of sjt: 2.00 ms
-average runtime of increase_base: 1.00 ms
-average runtime of decreate_base: 2.00 ms
-average runtime of neighbour_exchange: 3.00 ms
+average runtime of recursive: 0.00 ms
+average runtime of lexicographical: 0.00 ms
+average runtime of sjt: 0.00 ms
+average runtime of increase_base: 0.00 ms
+average runtime of decreate_base: 0.00 ms
+average runtime of neighbour_exchange: 0.00 ms
+average runtime of lexicographical with intermediate number: 0.00 ms
+average runtime of recursive with stack: 0.00 ms
+average runtime of heap algorithm: 0.00 ms
 length of permutation: 4
-average runtime of recursive: 7.00 ms
-average runtime of directionary: 3.00 ms
-average runtime of sjt: 7.00 ms
-average runtime of increase_base: 2.00 ms
-average runtime of decreate_base: 4.00 ms
-average runtime of neighbour_exchange: 7.00 ms
+average runtime of recursive: 0.00 ms
+average runtime of lexicographical: 0.00 ms
+average runtime of sjt: 0.00 ms
+average runtime of increase_base: 0.00 ms
+average runtime of decreate_base: 0.00 ms
+average runtime of neighbour_exchange: 0.00 ms
+average runtime of lexicographical with intermediate number: 0.00 ms
+average runtime of recursive with stack: 0.00 ms
+average runtime of heap algorithm: 0.00 ms
 length of permutation: 5
-average runtime of recursive: 24.00 ms
-average runtime of directionary: 5.00 ms
-average runtime of sjt: 40.00 ms
-average runtime of increase_base: 5.00 ms
-average runtime of decreate_base: 23.00 ms
-average runtime of neighbour_exchange: 38.00 ms
+average runtime of recursive: 0.02 ms
+average runtime of lexicographical: 0.00 ms
+average runtime of sjt: 0.01 ms
+average runtime of increase_base: 0.02 ms
+average runtime of decreate_base: 0.02 ms
+average runtime of neighbour_exchange: 0.02 ms
+average runtime of lexicographical with intermediate number: 0.03 ms
+average runtime of recursive with stack: 0.01 ms
+average runtime of heap algorithm: 0.00 ms
 length of permutation: 6
-average runtime of recursive: 132.00 ms
-average runtime of directionary: 22.00 ms
-average runtime of sjt: 278.00 ms
-average runtime of increase_base: 27.00 ms
-average runtime of decreate_base: 193.00 ms
-average runtime of neighbour_exchange: 260.00 ms
+average runtime of recursive: 0.08 ms
+average runtime of lexicographical: 0.01 ms
+average runtime of sjt: 0.06 ms
+average runtime of increase_base: 0.09 ms
+average runtime of decreate_base: 0.11 ms
+average runtime of neighbour_exchange: 0.15 ms
+average runtime of lexicographical with intermediate number: 0.13 ms
+average runtime of recursive with stack: 0.09 ms
+average runtime of heap algorithm: 0.01 ms
 length of permutation: 7
-average runtime of recursive: 746.00 ms
-average runtime of directionary: 120.00 ms
-average runtime of sjt: 1843.00 ms
-average runtime of increase_base: 148.00 ms
-average runtime of decreate_base: 1182.00 ms
-average runtime of neighbour_exchange: 1408.00 ms
+average runtime of recursive: 0.64 ms
+average runtime of lexicographical: 0.10 ms
+average runtime of sjt: 0.45 ms
+average runtime of increase_base: 0.74 ms
+average runtime of decreate_base: 0.74 ms
+average runtime of neighbour_exchange: 1.11 ms
+average runtime of lexicographical with intermediate number: 0.79 ms
+average runtime of recursive with stack: 0.53 ms
+average runtime of heap algorithm: 0.06 ms
 length of permutation: 8
-average runtime of recursive: 4564.00 ms
-average runtime of directionary: 669.00 ms
-average runtime of sjt: 11838.00 ms
-average runtime of increase_base: 883.00 ms
-average runtime of decreate_base: 8598.00 ms
-average runtime of neighbour_exchange: 11007.00 ms
+average runtime of recursive: 3.18 ms
+average runtime of lexicographical: 0.83 ms
+average runtime of sjt: 3.23 ms
+average runtime of increase_base: 5.15 ms
+average runtime of decreate_base: 6.36 ms
+average runtime of neighbour_exchange: 9.81 ms
+average runtime of lexicographical with intermediate number: 6.29 ms
+average runtime of recursive with stack: 4.80 ms
+average runtime of heap algorithm: 0.44 ms
 length of permutation: 9
-average runtime of recursive: 34485.00 ms
-average runtime of directionary: 5256.00 ms
-average runtime of sjt: 129127.00 ms
-average runtime of increase_base: 7727.00 ms
-average runtime of decreate_base: 85202.00 ms
-average runtime of neighbour_exchange: 116482.00 ms
+average runtime of recursive: 29.67 ms
+average runtime of lexicographical: 5.83 ms
+average runtime of sjt: 31.44 ms
+average runtime of increase_base: 51.08 ms
+average runtime of decreate_base: 69.53 ms
+average runtime of neighbour_exchange: 95.14 ms
+average runtime of lexicographical with intermediate number: 58.35 ms
+average runtime of recursive with stack: 32.15 ms
+average runtime of heap algorithm: 3.90 ms
 length of permutation: 10
-average runtime of recursive: 351554.00 ms
-average runtime of directionary: 55424.00 ms
-average runtime of sjt: 1271850.00 ms
-average runtime of increase_base: 76088.00 ms
-average runtime of decreate_base: 965807.00 ms
-average runtime of neighbour_exchange: 1232616.00 ms
+average runtime of recursive: 289.38 ms
+average runtime of lexicographical: 57.97 ms
+average runtime of sjt: 347.12 ms
+average runtime of increase_base: 579.78 ms
+average runtime of decreate_base: 772.98 ms
+average runtime of neighbour_exchange: 1047.72 ms
+average runtime of lexicographical with intermediate number: 624.78 ms
+average runtime of recursive with stack: 304.56 ms
+average runtime of heap algorithm: 41.72 ms

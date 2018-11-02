@@ -1,13 +1,13 @@
-all : out old_out 
+all : out mt
 
 out : new.cpp
-	g++  -o out new.cpp -std=c++11
+	g++ -o out new.cpp -std=c++11
 
-old_out : permutation.cpp
-	g++ -o old_out permutation.cpp -std=c++11
+mt : multi-threads.cpp
+	g++ -o mt multi-threads.cpp -std=c++11 -fopenmp
 
 clean :
-	rm -f out old_out *.o
+	rm -f out mt
 
 
 
